@@ -1,15 +1,27 @@
 const locators = {
 
-    cadastro: {
-        pageCadastro: '#login_area > div > div > div > div > h3',
-        inputNome: 'input[id="user"',
+    register: {
+        titlePageRegister: 'div > h3',
+        inputName: 'input[id="user"',
         inputEmail: 'input[id="email"]',
-        inputSenha: 'input[id="password"]',
-        btnCadastrar: 'button[id="btnRegister"]',
-        msgSucesso: 'h2[id="swal2-title"]',
-        msgBoasVindas: 'div[class="swal2-html-container"]',
+        inputPassword: 'input[id="password"]',
+        btnRegister: 'button[id="btnRegister"]',
+        msgSucess: 'h2[id="swal2-title"]',
+        msgWelcome: 'div[class="swal2-html-container"]',
         btnOk: 'button[class="swal2-confirm swal2-styled"]',
-        alertaErro: 'span[class="errorLabel"]'
+        alertErro: 'span[class="errorLabel"]'
+    },
+
+    login: {
+        inputEmail: 'input[id="user"]',
+        inputPassword: 'input[id="password"]',
+        btnLogin: 'button[id="btnLogin"]',
+        msgSucess: 'h2[id="swal2-title"]',
+        msgWelcome: 'div[id="swal2-html-container"]',
+        btnOk: 'button[class="swal2-confirm swal2-styled"]',
+        alertErro: '.invalid_input',
+        checkbox: 'input[id="materialUnchecked"]',
+        linkCreateAccount: '#createAccount'
     }
 }
 
