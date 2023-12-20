@@ -2,7 +2,7 @@
 
 import "../../support/register/registerCommands";
 import "../../support/register/registerAssertions";
-import { fakerPT_BR as faker } from '@faker-js/faker';
+import {fakerPT_BR as faker} from '@faker-js/faker';
 
 const name = faker.person.fullName();
 const email = faker.internet.email();
