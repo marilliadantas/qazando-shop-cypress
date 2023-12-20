@@ -10,3 +10,6 @@ jobs:
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v2
+
+      - name: Copy package-lock.json
+        run: cp package-lock.json /home/runner/work/qazando-shop-cypress/qazando-shop-cypress/
