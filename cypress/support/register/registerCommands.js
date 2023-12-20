@@ -27,3 +27,7 @@ Cypress.Commands.add("blankNameField", () => {
 Cypress.Commands.add("blankEmailField", () => {
     cy.get(loc.register.inputEmail).clear();
 })
+
+Cypress.Commands.add("blankPasswordField", () => {
+    cy.get(loc.register.inputEmail).clear();
+})

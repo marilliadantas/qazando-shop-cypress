@@ -2,7 +2,7 @@
 
 import "../../support/register/registerCommands";
 import "../../support/register/registerAssertions";
-import { fakerPT_BR as faker} from '@faker-js/faker';
+import { fakerPT_BR as faker } from '@faker-js/faker';
 
 const name = faker.person.fullName();
 const email = faker.internet.email();
@@ -38,6 +38,22 @@ describe('Register', () => {
     cy.fillInPassword(password);
     cy.clickRegisterButton();
     cy.validateErrorAlert("O campo e-mail deve ser prenchido corretamente");
+  })
+
+  it('Registration with invalid password', () => {
+    cy.fillInName(name);
+    cy.fillInEmail(email);
+    cy.fillInPassword("3827361782");
+    cy.clickRegisterButton();
+    cy.validateErrorAlert("O campo senha deve ser prenchido corretamente");
+  })
+  
+  it('Registration with blank password', () => {
+    cy.fillInName(name);
+    cy.fillInEmail(email);
+    cy.blankPasswordField();
+    cy.clickRegisterButton();
+    cy.validateErrorAlert("O campo senha deve ser prenchido corretamente");
   })
 
   it('Registration with invalid email', () => {

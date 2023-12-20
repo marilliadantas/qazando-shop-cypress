@@ -18,10 +18,17 @@ const locators = {
         btnLogin: 'button[id="btnLogin"]',
         msgSucess: 'h2[id="swal2-title"]',
         msgWelcome: 'div[id="swal2-html-container"]',
-        btnOk: 'button[class="swal2-confirm swal2-styled"]',
+        btnOk: '.swal2-confirm',
         alertErro: '.invalid_input',
         checkbox: 'input[id="materialUnchecked"]',
-        linkCreateAccount: '#createAccount'
+        linkCreateAccount: '#createAccount',
+        titlePageLogin: '.account_form > h3'
+    },
+
+    logout: {
+        btnLogout: 'a[href="/#!"]',
+        msgLogout: 'h2[id="swal2-title"]',
+        msgThanks: 'div[id="swal2-html-container"]'
     }
 }
 

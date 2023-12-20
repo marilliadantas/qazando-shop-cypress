@@ -35,3 +35,12 @@ Cypress.Commands.add("deselectCheckbox", () => {
 Cypress.Commands.add("clickLinkCreateAccount", () => {
     cy.get(loc.login.linkCreateAccount).click({force: true});
 });
+
+Cypress.Commands.add("logIn", () => {
+    cy.fillInEmail(Cypress.env("email"));
+        cy.fillInPassword(Cypress.env("senha"));
+        cy.clickButton();
+        cy.validateMsgSuccess("Login realizado");
+        cy.validateMsgWelcome("Olá, kylian@teste.com");
+        cy.clickButtonOk();
+});
