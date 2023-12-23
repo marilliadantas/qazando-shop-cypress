@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         # vai executar 2x o mesmo workflow (paralelo) para cada node-version        
-        node-version: [12.x, 14.x]
+        node-version: [12.x]
 
     steps:
     - uses: actions/checkout@v2
