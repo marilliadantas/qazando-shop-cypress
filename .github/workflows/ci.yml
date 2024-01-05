@@ -11,10 +11,12 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      # Install faker.js
+      # Install Faker.js
       - name: Install Faker.js
         run: npm install @faker-js/faker@^8.3.1
 
       # Run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v2
+        with:
+          config-file: 'e2e/cypress.json'
