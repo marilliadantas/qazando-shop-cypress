@@ -9,7 +9,7 @@ Cypress.Commands.add("fillInPassword", (password) => {
 });
 
 Cypress.Commands.add("clickButton", () => {
-    cy.get(loc.login.btnLogin).click({force: true});
+    cy.get(loc.login.btnLogin).click();
 });
 
 Cypress.Commands.add("clickButtonOk", () => {

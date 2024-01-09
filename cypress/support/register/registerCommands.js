@@ -13,7 +13,7 @@ Cypress.Commands.add("fillInPassword", (password) => {
 });
 
 Cypress.Commands.add("clickRegisterButton", () => {
-    cy.get(loc.register.btnRegister).click({force: true});
+    cy.get(loc.register.btnRegister).click();
 })
 
 Cypress.Commands.add("closeModal", () => {
