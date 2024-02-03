@@ -1,21 +1,29 @@
 name: Cypress Tests
-on: [push]
+on:
+  push:
+    branches:
+      - main # Altere para o nome da sua branch principal
+
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14' # Altere para a versão do Node.js desejada
+
+      - name: Install Dependencies
+        run: npm install
+
       - name: Cypress run
-        # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v5
         with:
-          # wait-on: 'http://automationpratice.com.br/' # Waits for above
           record: true
+          wait-on: 'http://automationpractice.com/' # Altere para o endereço correto do seu aplicativo
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-
