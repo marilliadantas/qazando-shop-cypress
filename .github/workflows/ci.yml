@@ -10,7 +10,7 @@ jobs:
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v5
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v5
         # add the line below to store screenshots only on failures
         if: failure()
         with:
