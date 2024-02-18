@@ -4,6 +4,10 @@ Cypress.Commands.add("validateMsgSuccess", (msgSuccess) => {
     cy.get(loc.login.msgSucess).should('be.visible').and('contain', msgSuccess)
 });
 
+Cypress.Commands.add("validateMsgSuccess", (msgSuccess) => {
+    cy.get(loc.login.msgSucess).should('have.text', "Login realizado")
+});
+
 Cypress.Commands.add("validateMsgWelcome", (msgWelcome) => {
     cy.get(loc.login.msgWelcome).should('be.visible').and('contain', msgWelcome)
 });
