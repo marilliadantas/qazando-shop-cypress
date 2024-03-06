@@ -14,6 +14,7 @@ describe('Login', () => {
         cy.clickButton();
         cy.validateMsgSuccess("Login realizado");
         cy.validateMsgWelcome("Olá, kylian@teste.com");
+        cy.url().should('include', '/my-account');
         cy.clickButtonOk();
     });
 

@@ -4,3 +4,4 @@ cypress/videos
 cypress.json
 cypress.env.json
 cypress/fixtures
+cypress/reports/
