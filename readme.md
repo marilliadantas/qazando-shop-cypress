@@ -6,6 +6,8 @@ O teste foi realizado no site [Qazando shop](https://automationpratice.com.br/).
 
 ## Plano de Testes
 
+### Funcionalidade de Login
+
 | Número | Cenários                                                             |
 |--------|---------------------------------------------------------------------|
 | 1      | ✔️ **Login bem-sucedido**: Realiza login com sucesso usando credenciais válidas. |
@@ -15,16 +17,21 @@ O teste foi realizado no site [Qazando shop](https://automationpratice.com.br/).
 | 5      | ❌ **Login com campo de senha em branco**: Tenta fazer login com o campo de senha em branco. |
 | 6      | ❌ **Login com campos de e-mail e senha em branco**: Tenta fazer login com ambos os campos em branco. |
 | 7      | ✔️ **Selecionar e desmarcar a opção de lembrar-me**: Verifica se é possível selecionar e desmarcar a opção de lembrar-me. |
-| 8      | ✔️ **Validar link de criação de conta**: Verifica se o link para criar uma nova conta está funcionando corretamente. |
 | 9      | ✔️ **Logout bem-sucedido**: Realiza logout da conta do usuário com sucesso. |
-| 10     | ✔️ **Registro bem-sucedido**: Realiza registro com sucesso utilizando informações válidas. |
-| 11     | ❌ **Registro com campo de nome em branco**: Tenta realizar registro com o campo de nome em branco. |
-| 12     | ❌ **Registro com campo de e-mail em branco**: Tenta realizar registro com o campo de e-mail em branco. |
-| 13     | ❌ **Registro com senha inválida**: Tenta realizar registro com uma senha inválida. |
-| 14     | ❌ **Registro com campo de senha em branco**: Tenta realizar registro com o campo de senha em branco. |
-| 15     | ❌ **Registro com e-mail inválido**: Tenta realizar registro com um e-mail inválido. |
-| 16     | ❌ **Registro com e-mail contendo apenas números**: Tenta realizar registro com um e-mail contendo apenas números. |
-| 17     | ❌ **Registro com e-mail especial**: Tenta realizar registro com um e-mail com caracteres especiais. |
+
+### Funcionalidade de Cadastro
+
+| Número | Cenários                                                             |
+|--------|---------------------------------------------------------------------|
+| 10     | ✔️ **Cadastro bem-sucedido**: Realiza registro com sucesso utilizando informações válidas. |
+| 11     | ❌ **Cadastro com campo de nome em branco**: Tenta realizar registro com o campo de nome em branco. |
+| 12     | ❌ **Cadastro com campo de e-mail em branco**: Tenta realizar registro com o campo de e-mail em branco. |
+| 13     | ❌ **Cadastro com senha inválida**: Tenta realizar registro com uma senha inválida. |
+| 14     | ❌ **Cadastro com campo de senha em branco**: Tenta realizar registro com o campo de senha em branco. |
+| 15     | ❌ **Cadastro com e-mail inválido**: Tenta realizar registro com um e-mail inválido. |
+| 16     | ❌ **Cadastro com e-mail contendo apenas números**: Tenta realizar registro com um e-mail contendo apenas números. |
+| 17     | ❌ **Cadastro com e-mail especial**: Tenta realizar registro com um e-mail com caracteres especiais. |
+
 
 ## Estrutura do Projeto Cypress
 
