@@ -5,17 +5,17 @@ module.exports = defineConfig({
   e2e: {
     baseUrl: 'https://automationpratice.com.br',
     // defaultCommandTimeout: 5000,
-    "viewportWidth": 1920,
-    "viewportHeight": 1080,
-    "video": false,
+    viewportWidth: 1920,
+    viewportHeight: 1080,
+    video: false,
+    screenshotOnRunFailure: false,
+    experimentalRunAllSpecs: true,
     reporterOptions: {
       charts: true,
-      reportPageTitle: 'custom-title',
+      reportPageTitle: 'Teste Qazando',
       embeddedScreenshots: true,
       inlineAssets: true,
       saveAllAttempts: false,
-      experimentalRunAllSpecs: true,
-      screenshotOnRunFailure: false,
 },
     setupNodeEvents(on, config) {
       allureWriter(on, config);
