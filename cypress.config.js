@@ -1,9 +1,9 @@
 const { defineConfig } = require("cypress");
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 
 module.exports = defineConfig({
   e2e: {
     baseUrl: 'https://automationpratice.com.br',
-    reporter: 'cypress-mochawesome-reporter',
     // defaultCommandTimeout: 5000,
     "viewportWidth": 1920,
     "viewportHeight": 1080,
@@ -14,11 +14,12 @@ module.exports = defineConfig({
       embeddedScreenshots: true,
       inlineAssets: true,
       saveAllAttempts: false,
+      experimentalRunAllSpecs: true,
+      screenshotOnRunFailure: false,
 },
-    // "screenshotOnRunFailure": false,
     setupNodeEvents(on, config) {
-      require('cypress-mochawesome-reporter/plugin')(on);
+      allureWriter(on, config);
+          return config;
     },
-    experimentalRunAllSpecs: true
   },
 });

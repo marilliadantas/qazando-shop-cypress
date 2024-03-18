@@ -23,3 +23,12 @@ jobs:
 
       - name: Run Cypress
         run: npx cypress run
+
+      - name: Generate Allure reports
+        run: npm run allure:generate
+  
+      - name: Publish reports to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./reports
