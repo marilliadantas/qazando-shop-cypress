@@ -1,37 +1,12 @@
-name: Qazando shop Testes
-
-on:
-  push:
-    branches:
-      - main
-
+name: End-to-end tests 🧪
+on: [push]
 jobs:
   cypress-run:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-20.04
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '16'
-
-      - name: Install dependencies
-        run: npm install
-      
-      - name: Install Faker API
-        run: npm install @faker-js/faker --save-dev
-
-      - name: Run Cypress
-        run: npx cypress open
-
-      - name: Generate Allure reports
-        run: npm run allure:generate
-  
-      - name: Publish reports to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./reports
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
