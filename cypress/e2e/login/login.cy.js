@@ -5,10 +5,10 @@ import "../../support/login/loginAssertions";
 
 describe('Login', () => {
     beforeEach(() => {
-        cy.visit("/login#!")
+        cy.acessarPage()
     });
 
-    it('Login success', () => {
+    it.only('Login success', () => {
         cy.fillInEmail(Cypress.env("email"));
         cy.fillInPassword(Cypress.env("senha"));
         cy.clickButton();

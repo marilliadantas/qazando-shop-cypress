@@ -1,5 +1,9 @@
 import loc from "../locators";
 
+Cypress.Commands.add("acessarPage", () => {
+    cy.visit("/login#!")
+});
+
 Cypress.Commands.add("fillInEmail", (email) => {
     cy.get(loc.login.inputEmail).type(email, {log: false});
 });
