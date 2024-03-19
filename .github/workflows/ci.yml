@@ -26,10 +26,10 @@ jobs:
 
       - name: Run Cypress
         env:
-          CYPRESS_EMAIL: ${{secrets.CYPRESS_EMAIL}}
-          CYPRESS_PASSWORD: ${{secrets.CYPRESS_PASSWORD}}
-
+          CYPRESS_EMAIL: ${{ secrets.email }}
+          CYPRESS_PASSWORD: ${{ secrets.senha }}
         run: npx cypress run
+
       - name: Generate Allure reports
         run: npm run allure:generate
   
