@@ -9,8 +9,8 @@ describe('Login', () => {
     });
 
     it.only('Login success', () => {
-        cy.fillInEmail(Cypress.env("email"));
-        cy.fillInPassword(Cypress.env("senha"));
+        cy.fillInEmail();
+        cy.fillInPassword();
         cy.clickButton();
         cy.validateMsgSuccess("Login realizado");
         cy.validateMsgWelcome("Olá, kylian@teste.com");
