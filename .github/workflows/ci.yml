@@ -24,13 +24,7 @@ jobs:
       - name: Install Faker API
         run: npm install @faker-js/faker --save-dev
 
-      - name: Set up Cypress secrets
-        run: echo "::set-env name=CYPRESS_EMAIL::${{ secrets.CYPRESS_EMAIL }}" && echo "::set-env name=CYPRESS_PASSWORD::${{ secrets.CYPRESS_PASSWORD }}"
-
       - name: Run Cypress
-        env:
-          CYPRESS_EMAIL: ${{ env.CYPRESS_EMAIL }}
-          CYPRESS_PASSWORD: ${{ env.CYPRESS_PASSWORD }}
         run: npx cypress run
 
       - name: Generate Allure reports
