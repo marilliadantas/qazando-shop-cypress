@@ -20,6 +20,9 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+      
+      - name: Install Faker API
+        run: npm install @faker-js/faker --save-dev
 
       - name: Run Cypress
         run: npx cypress run
