@@ -25,8 +25,11 @@ jobs:
         run: npm install @faker-js/faker --save-dev
 
       - name: Run Cypress
-        run: npx cypress run --env email="$cypress_email",senha="$cypress_password"
+        env:
+          CYPRESS_EMAIL: ${{secrets.CYPRESS_EMAIL}}
+          CYPRESS_PASSWORD: ${{secrets.CYPRESS_PASSWORD}}
 
+        run: npx cypress run
       - name: Generate Allure reports
         run: npm run allure:generate
   
