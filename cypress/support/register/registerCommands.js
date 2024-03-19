@@ -8,8 +8,8 @@ Cypress.Commands.add("fillInEmail", (email) => {
     cy.get(loc.register.inputEmail).type(email);
 });
 
-Cypress.Commands.add("fillInPassword", () => {
-    cy.get(loc.register.inputPassword).type("123Teste", {log: false});
+Cypress.Commands.add("fillInPassword", (password) => {
+    cy.get(loc.register.inputPassword).type(password, {log: false});
 });
 
 Cypress.Commands.add("clickRegisterButton", () => {

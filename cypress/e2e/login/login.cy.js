@@ -8,7 +8,7 @@ describe('Login', () => {
         cy.acessarPage()
     });
 
-    it.only('Login success', () => {
+    it('Login success', () => {
         cy.fillInEmail();
         cy.fillInPassword();
         cy.clickButton();
