@@ -20,7 +20,7 @@ describe('Login', () => {
 
     it('Login with invalid email', () => {
         cy.fillInEmail("teste@jdhajdsajkd.com");
-        cy.fillInPassword(Cypress.env("senha"));
+        cy.fillInPassword();
         cy.clickButton();
         cy.validateMsgError("E-mail inválido.");
     });
@@ -34,13 +34,13 @@ describe('Login', () => {
 
     it('Login with blank email', () => {
         cy.clearFieldEmail();
-        cy.fillInPassword(Cypress.env("senha"));
+        cy.fillInPassword();
         cy.clickButton();
         cy.validateMsgError("E-mail inválido.");
     });
 
     it('Login with blank password', () => {
-        cy.fillInEmail(Cypress.env("email"));
+        cy.fillInEmail();
         cy.clearFieldPassword();
         cy.clickButton();
         cy.validateMsgError("Senha inválida.");
