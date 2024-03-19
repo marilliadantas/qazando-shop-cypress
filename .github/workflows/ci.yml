@@ -27,6 +27,11 @@ jobs:
       - name: Set Cypress environment variables
         run: echo "export CYPRESS_email=$(jq -r '.email' cypress.env.json) && export CYPRESS_password=$(jq -r '.senha' cypress.env.json)" >> $GITHUB_ENV
 
+      - name: Debug Environment Variables
+        run: |
+          echo "Email: $CYPRESS_email"
+          echo "Password: $CYPRESS_password"
+
       - name: Run Cypress
         run: npx cypress run --env email=$CYPRESS_email,senha=$CYPRESS_password
 
