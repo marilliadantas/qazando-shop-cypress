@@ -24,8 +24,11 @@ jobs:
       - name: Install Faker API
         run: npm install @faker-js/faker --save-dev
 
+      - name: Set Cypress environment variables
+        run: echo "export CYPRESS_email=$(jq -r '.email' cypress.env.json) && export CYPRESS_password=$(jq -r '.senha' cypress.env.json)" >> $GITHUB_ENV
+
       - name: Run Cypress
-        run: npx cypress run
+        run: npx cypress run --env email=$CYPRESS_email,senha=$CYPRESS_password
 
       - name: Generate Allure reports
         run: npm run allure:generate
