@@ -5,7 +5,7 @@ Cypress.Commands.add("acessarPage", () => {
 });
 
 Cypress.Commands.add("fillInEmail", () => {
-    cy.get(loc.login.inputEmail).type(Cypress.env("email"), {log: false});
+    cy.get(loc.login.inputEmail).type("kylian@teste.com", {log: false});
 });
 
 // Cypress.Commands.add("fillInPassword", (password) => {
@@ -13,7 +13,7 @@ Cypress.Commands.add("fillInEmail", () => {
 // });
 
 Cypress.Commands.add("fillInPassword", () => {
-    cy.get(loc.login.inputPassword).type(Cypress.env("senha"), {log: false});
+    cy.get(loc.login.inputPassword).type("123Teste", {log: false});
 });
 
 Cypress.Commands.add("clickButton", () => {
