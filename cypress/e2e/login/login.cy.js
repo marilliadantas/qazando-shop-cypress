@@ -1,68 +1,63 @@
 /// <reference types = "cypress" />
 
-import "../../support/login/loginCommands";
-import "../../support/login/loginAssertions";
+import homePage from "../../support/pages/home_page";
+import loginPage from "../../support/pages/login_page";
 
 describe('Login', () => {
     beforeEach(() => {
-        cy.acessarPage()
+        homePage.accessLoginPage()
     });
 
     it('Login success', () => {
-        cy.fillInEmail();
-        cy.fillInPassword();
-        cy.clickButton();
-        cy.validateMsgSuccess("Login realizado");
-        cy.validateMsgWelcome("Olá, kylian@teste.com");
-        cy.url().should('include', '/my-account');
-        cy.clickButtonOk();
+        loginPage.fillEmail()
+        loginPage.fillPassword()
+        loginPage.logIn()
+        loginPage.checkLoginSuccess()
+        loginPage.checkUrl('/my-account');
     });
 
     it('Login with invalid email', () => {
-        cy.fillInEmail("teste@jdhajdsajkd.com");
-        cy.fillInPassword();
-        cy.clickButton();
-        cy.validateMsgError("E-mail inválido.");
+        loginPage.fillEmail("emailinvalido")
+        loginPage.fillPassword()
+        loginPage.logIn()
+        loginPage.checkMessage("E-mail inválido.")
     });
 
     it('Login with invalid password', () => {
-        cy.fillInEmail("kylian@teste.com");
-        cy.fillInPassword("teste23871");
-        cy.clickButton();
-        cy.validateMsgError("Senha inválida.");
+        loginPage.fillEmail()
+        loginPage.fillPassword("teste23871")
+        loginPage.logIn()
+        loginPage.checkMessage("Senha inválida.")
     });
 
     it('Login with blank email', () => {
-        cy.clearFieldEmail();
-        cy.fillInPassword();
-        cy.clickButton();
-        cy.validateMsgError("E-mail inválido.");
+        loginPage.fillPassword()
+        loginPage.logIn()
+        loginPage.checkMessage("E-mail inválido.")
     });
 
     it('Login with blank password', () => {
-        cy.fillInEmail();
-        cy.clearFieldPassword();
-        cy.clickButton();
-        cy.validateMsgError("Senha inválida.");
+        loginPage.fillEmail()
+        loginPage.logIn()
+        loginPage.checkMessage("Senha inválida.")
     });
 
     it('Login with blank email and password', () => {
-        cy.clearFieldEmail();
-        cy.clearFieldPassword();
-        cy.clickButton();
-        cy.validateMsgError("E-mail inválido.");
-        cy.validateMsgError("Senha inválida.");
+        loginPage.logIn()
+        loginPage.checkMessage("E-mail inválido.")
+        loginPage.checkMessage("Senha inválida.")
     });
 
     it('Select and Deselect remember me checkbox', () => {
-        cy.selectCheckbox();
-        cy.validateCheckboxSelected();
-        cy.deselectCheckbox();
-        cy.validateCheckboxDeselected();
+        loginPage.selectCheckbox()
+        loginPage.checkCheckbox()
+        loginPage.deselectCheckbox()
+        loginPage.checkCheckboxUncheck()
     });
 
     it('Validate link create account', () => {
-        cy.clickLinkCreateAccount();
-        cy.validatePaginaRegistration();
+        loginPage.clickLinkCreateAccount()
+        loginPage.checkLinkRegistration()
+        loginPage.checkUrl('/register')
     });
 });

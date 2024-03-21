@@ -14,11 +14,8 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+// import './commands'
 import '@shelex/cypress-allure-plugin';
-
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
 
 const app = window.top;
 if (!app.document.head.querySelector("[data-hide-command-log-request]")) {
