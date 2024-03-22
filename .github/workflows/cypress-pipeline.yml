@@ -1,19 +1,24 @@
-name: Executar testes básicos
-
-on:
-  push:
-    branches: [main]
-
+name: End-to-end tests
+on: push
 jobs:
   cypress-run:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-22.04
     steps:
-      - name: Checkout do repositório
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Instalar dependências do projeto
-        run: npm install
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
 
-      - name: Executar testes
-        uses: cypress-io/github-actions@v5
+      - uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+          if-no-files-found: ignore
+          
+      - uses: actions/upload-artifact@v3
+        with:
+          name: cypress-videos
+          path: cypress/videos
+          if-no-files-found: ignore
