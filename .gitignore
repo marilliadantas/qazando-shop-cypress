@@ -7,3 +7,5 @@ cypress/fixtures
 cypress/reports/
 ci.yml
 exemplo-pipe.yml
+package.json
+package-lock.json
