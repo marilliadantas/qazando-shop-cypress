@@ -5,3 +5,5 @@ cypress.json
 cypress.env.json
 cypress/fixtures
 cypress/reports/
+ci.yml
+exemplo-pipe.yml
