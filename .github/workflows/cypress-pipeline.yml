@@ -2,7 +2,7 @@
 name: Run basic testes
 
 on:
-    pull_request:
+    push:
         branches: [main]
     
 jobs:
