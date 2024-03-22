@@ -1,20 +1,16 @@
-# Nome da pipeline
-name: Run basic testes
+name: Executar testes básicos
 
 on:
-    push:
-        branches: [main]
-    
+  push:
+    branches: [main]
+
 jobs:
-    cypress-run:
-        runs-on: ubuntu-latest
+  cypress-run:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout/Clone do projeto
-              uses: actions/checkout@v3
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v3
 
-            - name: Instalar dependências no terminal
-              run: echo Eduardo Finnoti
-
-            - name: Run testes
-              uses: cypress-io/github-actions@v5
+      - name: Executar testes
+        uses: cypress-io/github-actions@v5
