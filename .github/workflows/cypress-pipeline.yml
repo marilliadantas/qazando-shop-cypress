@@ -27,5 +27,5 @@ jobs:
         env:
           PASSWORD: ${{ secrets.PASSWORD }}
         run: |
-          sed -i "s/sua_senha_aqui/${PASSWORD}/g" cypress.env.json
+          sed -i "s/senha/${PASSWORD}/g" cypress.env.json
           npx cypress run --env-file cypress.env.json
