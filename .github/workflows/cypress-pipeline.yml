@@ -1,32 +1,31 @@
-name: End-to-end tests
+name: seu_barriga_cypress_project
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   cypress-run:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v5
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - uses: actions/upload-artifact@v3
-        if: failure()
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-          if-no-files-found: ignore
-          
-      - uses: actions/upload-artifact@v3
-        with:
-          name: cypress-videos
-          path: cypress/videos
-          if-no-files-found: ignore
+          node-version: '16'
+
+      - name: Install dependencies including faker        
+        run: |    
+          npm install
+          npm install faker --save-dev
 
       - name: Run Cypress
         env:
-            EMAIL: ${{ secrets.EMAIL }}
             PASSWORD: ${{ secrets.PASSWORD }}
-        run: npx cypress run --env mail="$EMAIL" --env pwd="$PASSWORD"
+        run: npx cypress run --env pwd="$PASSWORD"
