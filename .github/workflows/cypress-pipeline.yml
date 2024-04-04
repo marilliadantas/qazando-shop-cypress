@@ -25,10 +25,7 @@ jobs:
           npm install
           npm install faker --save-dev
 
-      - name: Set environment variable
-        run: |
-          PASSWORD=$(cat cypress.env.json | jq -r '.senha')
-          echo "PASSWORD=$PASSWORD" >> $GITHUB_ENV
-  
       - name: Run Cypress
-        run: npx cypress run
+        env:
+            PASSWORD: ${{ secrets.PASSWORD }}
+        run: npx cypress run --env senha="$PASSWORD"
