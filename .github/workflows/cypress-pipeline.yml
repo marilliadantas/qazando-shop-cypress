@@ -1,4 +1,4 @@
-name: seu_barriga_cypress_project
+name: E2E test
 
 on:
   push:
@@ -27,5 +27,7 @@ jobs:
 
       - name: Run Cypress
         env:
+            EMAIL: ${{ secrets.EMAIL }}
             PASSWORD: ${{ secrets.PASSWORD }}
-        run: npx cypress run --env pwd="$PASSWORD"
+        run: |
+          npx cypress run --env pwd="$PASSWORD" --env email="$EMAIL"
