@@ -18,7 +18,7 @@ export default {
     fillEmail(email) {
         cy.get(elements.login.inputEmail)
             .should('be.visible')
-            .type("email"), {log: false}
+            .type(Cypress.env("mail"), {log: false})
     },
 
     fillPassword(password) {
