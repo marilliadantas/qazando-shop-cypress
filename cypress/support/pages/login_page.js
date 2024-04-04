@@ -18,7 +18,7 @@ export default {
     fillEmail(email) {
         cy.get(elements.login.inputEmail)
             .should('be.visible')
-            .type("kylian@teste.com"), {log: false}
+            .type("email"), {log: false}
     },
 
     fillPassword(password) {
