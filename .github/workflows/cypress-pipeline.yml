@@ -1,33 +1,31 @@
-name: E2E tests
-on: push
+name: End-to-end tests
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   cypress-run:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v5
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - uses: actions/upload-artifact@v3
-        if: failure()
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-          if-no-files-found: ignore
-          
-      - uses: actions/upload-artifact@v3
-        with:
-          name: cypress-videos
-          path: cypress/videos
-          if-no-files-found: ignore
+          node-version: '16'
 
-      - name: Set environment variable
-        run: echo "SENHA=${{ secrets.PASSWORD }}" >> $GITHUB_ENV
-  
-      - name: Replace password in cypress.env.json
-        run: sed -i "s/senha/${{ env.senha }}/g" cypress.env.json
-  
-      - name: Run Cypress Tests
-        run: npx cypress run --env-file cypress.env.json
+      - name: Install dependencies including faker        
+        run: |    
+          npm install
+          npm install faker --save-dev
+
+      - name: Run Cypress
+        env:
+            PASSWORD: ${{ secrets.PASSWORD }}
+        run: npx cypress run --env pwd="$PASSWORD"
