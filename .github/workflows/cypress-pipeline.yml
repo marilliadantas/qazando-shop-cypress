@@ -23,7 +23,9 @@ jobs:
           path: cypress/videos
           if-no-files-found: ignore
 
-      - name: Run Cypress
+      - name: Run Cypress Tests
         env:
-            PASSWORD: ${{ secrets.PASSWORD }}
-        run: npx cypress run --env pwd="$PASSWORD"
+          PASSWORD: ${{ secrets.PASSWORD }}
+        run: |
+          sed -i "s/sua_senha_aqui/${PASSWORD}/g" cypress.env.json
+          npx cypress run --env-file cypress.env.json
