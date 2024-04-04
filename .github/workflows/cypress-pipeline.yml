@@ -23,10 +23,11 @@ jobs:
           path: cypress/videos
           if-no-files-found: ignore
 
+      - name: Set environment variable
+        run: echo "SENHA=${{ secrets.PASSWORD }}" >> $GITHUB_ENV
+  
       - name: Replace password in cypress.env.json
-        env:
-          PASSWORD: ${{ secrets.PASSWORD }}
-        run: sed -i "s/senha/${PASSWORD}/g" cypress.env.json
+        run: sed -i "s/senha/${{ env.senha }}/g" cypress.env.json
   
       - name: Run Cypress Tests
         run: npx cypress run --env-file cypress.env.json
