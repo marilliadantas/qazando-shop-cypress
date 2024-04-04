@@ -1,33 +1,24 @@
-name: E2E test
-
-on:
-  push:
-    branches:
-      - main
-
+name: End-to-end tests
+on: push
 jobs:
   cypress-run:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-22.04
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
 
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/upload-artifact@v3
+        if: failure()
         with:
-          node-version: '16'
-
-      - name: Install dependencies including faker        
-        run: |    
-          npm install
-          npm install faker --save-dev
-
-      - name: Run Cypress
-        env:
-            EMAIL: ${{ secrets.EMAIL }}
-            PASSWORD: ${{ secrets.PASSWORD }}
-        run: |
-          npx cypress run --env pwd="$PASSWORD" --env mail="$EMAIL"
+          name: cypress-screenshots
+          path: cypress/screenshots
+          if-no-files-found: ignore
+          
+      - uses: actions/upload-artifact@v3
+        with:
+          name: cypress-videos
+          path: cypress/videos
+          if-no-files-found: ignore
