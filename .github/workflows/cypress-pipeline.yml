@@ -26,6 +26,6 @@ jobs:
           npm install faker --save-dev
 
       - name: Run Cypress
-        env:
-            PASSWORD: ${{ secrets.PASSWORD }}
-        run: npx cypress run --env pwd="$PASSWORD"
+        run: |
+            PASSWORD=$(jq -r '.senha' cypress.env.json)
+            export senha="$PASSWORD" && npx cypress run
