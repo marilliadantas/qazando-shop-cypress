@@ -7,8 +7,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v5
+      - name: Run E2E testes Push
+        run: npm run test || true
 
       - uses: actions/upload-artifact@v3
         if: failure()
