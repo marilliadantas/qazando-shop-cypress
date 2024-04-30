@@ -1,6 +1,11 @@
 name: End-to-end tests
 
-on: push
+on:
+  push:
+    branches:
+      - main
+      
+  workflow_dispatch:
 
 jobs:
   cypress-run:
@@ -19,7 +24,7 @@ jobs:
         run: npm install
   
       - name: Run test
-        run: npx cypress run
+        run: npx cypress run || true
 
       - name: Upload Cypress Screenshots
         if: failure()

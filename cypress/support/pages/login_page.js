@@ -18,13 +18,13 @@ export default {
     fillEmail(email) {
         cy.get(elements.login.inputEmail)
             .should('be.visible')
-            .type(Cypress.env("email"), {log: false})
+            .type("kylian@teste.com", {log: false})
     },
 
     fillPassword(password) {
         cy.get(elements.login.inputPassword)
             .should('be.visible')
-            .type(Cypress.env("senha"), {log: false})
+            .type("123Teste", {log: false})
     },
 
     logIn() {
