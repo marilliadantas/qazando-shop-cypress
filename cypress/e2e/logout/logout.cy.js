@@ -11,7 +11,9 @@ describe('Logout', () => {
     });
 
     it('Logout success', () => {
-        cy.logIn();
+        loginPage.fillEmail()
+        loginPage.fillPassword()
+        loginPage.logIn()
         cy.clickLogout();
         cy.validateMsgLogoutSuccess("Logout Sucessfull");
         cy.validateMsgThanks("Thank You");
