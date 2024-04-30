@@ -9,5 +9,4 @@ ci.yml
 exemplo-pipe.yml
 package.json
 package-lock.json
-allure-report
-allure-results
+/allure-results

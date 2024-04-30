@@ -75,5 +75,10 @@ export default {
     checkLinkRegistration() {
         cy.get(elements.login.titlePageRegister)
             .should('be.visible');
+    },
+
+    validatePageLogin(){ 
+        cy.get(loc.login.titlePageLogin)
+            .should('be.visible')
     }
 }

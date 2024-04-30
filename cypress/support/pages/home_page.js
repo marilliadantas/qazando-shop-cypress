@@ -21,5 +21,5 @@ export default {
 
         cy.get('#user')
         .should('be.visible')
-    }
+    },
 }

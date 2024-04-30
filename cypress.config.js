@@ -10,13 +10,7 @@ module.exports = defineConfig({
     video: false,
     screenshotOnRunFailure: false,
     experimentalRunAllSpecs: true,
-//     reporterOptions: {
-//       charts: true,
-//       reportPageTitle: 'Teste Qazando',
-//       embeddedScreenshots: true,
-//       inlineAssets: true,
-//       saveAllAttempts: false,
-// },
+    
     setupNodeEvents(on, config) {
       allureWriter(on, config);
           return config;
