@@ -1,8 +1,11 @@
 name: End-to-end tests
+
 on: push
+
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
+    name: Cypress Test Run
     steps:
       - name: Checkout do código
         uses: actions/checkout@v2
@@ -16,17 +19,18 @@ jobs:
         run: npm install
   
       - name: Run test
-        run: npx cypress run || true
-  
+        run: npx cypress run
 
-      - uses: actions/upload-artifact@v3
+      - name: Upload Cypress Screenshots
         if: failure()
+        uses: actions/upload-artifact@v3
         with:
           name: cypress-screenshots
           path: cypress/screenshots
           if-no-files-found: ignore
           
-      - uses: actions/upload-artifact@v3
+      - name: Upload Cypress Videos
+        uses: actions/upload-artifact@v3
         with:
           name: cypress-videos
           path: cypress/videos
