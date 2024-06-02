@@ -9,8 +9,8 @@ describe('Login', () => {
     });
 
     it('Login success', () => {
-        const email = Cypress.env('email')
-        const password = Cypress.env('senha')
+        const email = Cypress.env('EMAIL')
+        const password = Cypress.env('SENHA')
 
         loginPage.fillEmail(email)
         loginPage.fillPassword(password)

@@ -4,8 +4,8 @@ jobs:
   cypress-run:
     runs-on: ubuntu-22.04
     env:
-      email: ${{ secrets.email }}
-      senha: ${{ secrets.senha }}
+      email: ${{ secrets.EMAIL }}
+      senha: ${{ secrets.SENHA }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
