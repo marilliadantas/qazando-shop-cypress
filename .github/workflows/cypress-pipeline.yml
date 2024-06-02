@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-22.04
     env:
       EMAIL: ${{ secrets.EMAIL }}
-      PASSWORD: ${{ secrets.SENHA }}
+      SENHA: ${{ secrets.SENHA }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
