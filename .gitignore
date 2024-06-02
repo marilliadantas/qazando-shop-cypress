@@ -7,7 +7,6 @@ cypress/fixtures
 cypress/reports/
 ci.yml
 ci-multibrowser.yml
-ci.simples.yml
 exemplo-pipe.yml
 package.json
 package-lock.json
