@@ -9,11 +9,11 @@ describe('Login', () => {
     });
 
     it('Login success', () => {
-        const EMAIL = Cypress.env('EMAIL')
-        const SENHA = Cypress.env('SENHA')
+        const email = Cypress.env('email');
+        const senha = Cypress.env('senha');
 
-        loginPage.fillEmail(EMAIL)
-        loginPage.fillPassword(SENHA)
+        loginPage.fillEmail(email)
+        loginPage.fillPassword(email)
         loginPage.logIn()
         loginPage.checkLoginSuccess()
         loginPage.checkUrl('/my-account');

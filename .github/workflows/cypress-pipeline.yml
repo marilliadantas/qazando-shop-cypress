@@ -3,14 +3,19 @@ on: push
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
-    env:
-      EMAIL: ${{ secrets.EMAIL }}
-      SENHA: ${{ secrets.SENHA }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      
+      - name: Set Cypress environment variables
+        run: |
+          echo "export EMAIL=$(cat cypress.env.json | jq -r '.email')" >> $GITHUB_ENV
+          echo "export SENHA=$(cat cypress.env.json | jq -r '.senha')" >> $GITHUB_ENV
 
       - name: Cypress run
+        env:
+          EMAIL: ${{ env.EMAIL }}
+          SENHA: ${{ env.SENHA }}
         uses: cypress-io/github-action@v5
 
       - uses: actions/upload-artifact@v3
