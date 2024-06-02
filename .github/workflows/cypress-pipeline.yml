@@ -9,14 +9,14 @@ jobs:
       
       - name: Set Cypress environment variables
         run: |
-          echo "export EMAIL=$(cat cypress.env.json | jq -r '.email')" >> $GITHUB_ENV
-          echo "export SENHA=$(cat cypress.env.json | jq -r '.senha')" >> $GITHUB_ENV
+          echo "EMAIL=${{ secrets.EMAIL }}" >> $GITHUB_ENV
+          echo "SENHA=${{ secrets.SENHA }}" >> $GITHUB_ENV
 
       - name: Cypress run
-        env:
-          EMAIL: ${{ env.EMAIL }}
-          SENHA: ${{ env.SENHA }}
-        uses: cypress-io/github-action@v5
+        run: |
+          npx cypress run --env EMAIL=$EMAIL --env SENHA=$SENHA
+        
+      - uses: cypress-io/github-action@v5
 
       - uses: actions/upload-artifact@v3
         if: failure()
