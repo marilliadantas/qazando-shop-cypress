@@ -24,3 +24,7 @@ style.innerHTML = `.command-name-request, .command-name-xhr { display: none };`;
 style.setAttribute("data-hide-command-log-request", "");
 app.document.head.appendChild(style);
 }
+
+afterEach(() => {
+    cy.screenshot()
+});
