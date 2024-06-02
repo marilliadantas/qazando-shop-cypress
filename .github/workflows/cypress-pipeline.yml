@@ -11,9 +11,6 @@ jobs:
 
             - name: Cypress Tests 🧪
               uses: cypress-io/github-action@v5
-              with:
-                start: 'npm run dev'
-                build: 'npm run build'
                 
             - uses: actions/upload-artifact@v3
               if: always()
