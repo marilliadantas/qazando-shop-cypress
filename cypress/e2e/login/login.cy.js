@@ -8,9 +8,12 @@ describe('Login', () => {
         homePage.accessLoginPage()
     });
 
-    it.only('Login success', () => {
-        loginPage.fillEmail(Cypress.env('email'))
-        loginPage.fillPassword(Cypress.env('senha'))
+    it('Login success', () => {
+        const email = Cypress.env('email')
+        const password = Cypress.env('senha')
+
+        loginPage.fillEmail(email)
+        loginPage.fillPassword(password)
         loginPage.logIn()
         loginPage.checkLoginSuccess()
         loginPage.checkUrl('/my-account');
