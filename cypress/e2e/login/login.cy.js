@@ -9,7 +9,7 @@ describe('Login', () => {
     });
 
     it('Login success', () => {
-        loginPage.fillLogin(Cypress.env('email'), Cypress.env('senha'))
+        loginPage.fillLogin(Cypress.env('CYPRESS_EMAIL'), Cypress.env('CYPRESS_SENHA'))
         loginPage.logIn()
         loginPage.checkLoginSuccess()
         loginPage.checkUrl('/my-account');
