@@ -23,14 +23,13 @@ jobs:
           npm install
           npm install -g allure-commandline
 
-      - name: Criar arquivo cypress.env.json
-        run: |
-            echo "{\"CYPRESS_EMAIL\": \"${{ secrets.CYPRESS_EMAIL }}\", \"CYPRESS_SENHA\": \"${{ secrets.CYPRESS_SENHA }}\"}" > cypress.env.json
-
       - name: Clean Allure results
         run: npm run allure:clear
 
       - name: Run Cypress tests
+        env:
+          CYPRESS_EMAIL: ${{ secrets.CYPRESS_EMAIL }}
+          CYPRESS_SENHA: ${{ secrets.CYPRESS_SENHA }}
         run: npm test
 
       - name: Generate report
