@@ -3,23 +3,23 @@
 export default {
     accessLoginPage() {
         cy.visit('/')
-        .get('.header-logo')
+            .get('.header-logo')
 
         cy.get('.fa-user')
-        .click()
+            .click()
 
         cy.get('.account_form > h3')
-        .should('be.visible')
+            .should('be.visible')
     },
 
     accessRegisterPage() {
         cy.visit('/')
-        .get('.header-logo')
+            .get('.header-logo')
 
         cy.get('.fa-lock')
-        .click()
+            .click()
 
         cy.get('#user')
-        .should('be.visible')
+            .should('be.visible')
     },
 }
