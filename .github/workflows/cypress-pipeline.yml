@@ -23,6 +23,11 @@ jobs:
           npm install
           npm install -g allure-commandline
 
+      - name: Substituir valores do arquivo cypress.env.json pelas secrets
+        run: |
+          sed -i 's/"CYPRESS_EMAIL"/"${{ secrets.CYPRESS_EMAIL }}"/' cypress.env.json
+          sed -i 's/"CYPRESS_SENHA"/"${{ secrets.CYPRESS_SENHA }}"/' cypress.env.json
+
       - name: Clean Allure results
         run: npm run allure:clear
 
