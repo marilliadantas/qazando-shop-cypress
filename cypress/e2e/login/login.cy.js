@@ -9,32 +9,32 @@ describe('Login', () => {
     });
 
     it('Login success', () => {
-        loginPage.fillLogin(Cypress.env('email'), Cypress.env('senha'))
+        loginPage.fillLogin("kylian@teste.com", "123Teste")
         loginPage.logIn()
         loginPage.checkLoginSuccess()
         loginPage.checkUrl('/my-account');
     });
 
     it('Login with invalid email', () => {
-        loginPage.fillLogin("emailinvalido", Cypress.env('senha'))
+        loginPage.fillLogin("emailinvalido", "123Teste")
         loginPage.logIn()
         loginPage.checkMessage("E-mail inválido.")
     });
 
     it('Login with invalid password', () => {
-        loginPage.fillLogin(Cypress.env('email'), "teste23871")
+        loginPage.fillLogin("kylian@teste.com", "teste23871")
         loginPage.logIn()
         loginPage.checkMessage("Senha inválida.")
     });
 
     it('Login with blank email', () => {
-        loginPage.fillLogin(null, Cypress.env('senha'))
+        loginPage.fillLogin(null, "123Teste")
         loginPage.logIn()
         loginPage.checkMessage("E-mail inválido.")
     });
 
     it('Login with blank password', () => {
-        loginPage.fillLogin(Cypress.env('email'), null)
+        loginPage.fillLogin("kylian@teste.com", null)
         loginPage.logIn()
         loginPage.checkMessage("Senha inválida.")
     });
