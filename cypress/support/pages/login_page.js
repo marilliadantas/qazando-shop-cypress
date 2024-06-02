@@ -15,16 +15,17 @@ const elements = {
 }
 
 export default {
-    fillEmail(email) {
+    fillLogin(email, senha) {
+        if (email !== null) {
         cy.get(elements.login.inputEmail)
             .should('be.visible')
             .type(email, {log: false})
-    },
-
-    fillPassword(password) {
+        }
+        if (senha !== null) {
         cy.get(elements.login.inputPassword)
             .should('be.visible')
-            .type(password, {log: false})
+            .type(senha, {log: false})
+        }
     },
 
     logIn() {

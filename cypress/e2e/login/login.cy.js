@@ -9,40 +9,38 @@ describe('Login', () => {
     });
 
     it('Login success', () => {
-        loginPage.fillEmail(Cypress.env('CYPRESS_EMAIL'))
-        loginPage.fillPassword(Cypress.env('CYPRESS_PASSWORD'))
+        loginPage.fillLogin(Cypress.env('email'), Cypress.env('senha'))
         loginPage.logIn()
         loginPage.checkLoginSuccess()
         loginPage.checkUrl('/my-account');
     });
 
     it('Login with invalid email', () => {
-        loginPage.fillEmail("emailinvalido")
-        loginPage.fillPassword()
+        loginPage.fillLogin("emailinvalido", Cypress.env('senha'))
         loginPage.logIn()
         loginPage.checkMessage("E-mail inválido.")
     });
 
     it('Login with invalid password', () => {
-        loginPage.fillEmail()
-        loginPage.fillPassword("teste23871")
+        loginPage.fillLogin(Cypress.env('email'), "teste23871")
         loginPage.logIn()
         loginPage.checkMessage("Senha inválida.")
     });
 
     it('Login with blank email', () => {
-        loginPage.fillPassword()
+        loginPage.fillLogin(null, Cypress.env('senha'))
         loginPage.logIn()
         loginPage.checkMessage("E-mail inválido.")
     });
 
     it('Login with blank password', () => {
-        loginPage.fillEmail()
+        loginPage.fillLogin(Cypress.env('email'), null)
         loginPage.logIn()
         loginPage.checkMessage("Senha inválida.")
     });
 
     it('Login with blank email and password', () => {
+        loginPage.fillLogin(null, null)
         loginPage.logIn()
         loginPage.checkMessage("E-mail inválido.")
         loginPage.checkMessage("Senha inválida.")
