@@ -15,8 +15,7 @@ jobs:
       - name: Cypress run
         run: |
           npx cypress run --env EMAIL=$EMAIL --env SENHA=$SENHA
-        
-      - uses: cypress-io/github-action@v5
+      
 
       - uses: actions/upload-artifact@v3
         if: failure()
