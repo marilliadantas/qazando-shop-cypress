@@ -1,11 +1,11 @@
 /// <reference types = "cypress" />
 
-import homePage from "../../support/pages/home_page";
+import initialPage from "../../support/pages/initial_page";
 import loginPage from "../../support/pages/login_page";
 
 describe('Login', () => {
     beforeEach(() => {
-        homePage.accessLoginPage()
+        initialPage.accessLoginPage()
     });
 
     it('Login success', () => {

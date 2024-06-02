@@ -1,60 +1,48 @@
 /// <reference types="cypress"/>
 
-const elements = {
-    login: {
-        inputEmail: '#user',
-        inputPassword: 'input[id="password"]',
-        btnLogin: 'button[id="btnLogin"]',
-        msgSuccess: 'h2[id="swal2-title"]',
-        msgWelcome: 'div[id="swal2-html-container"]',
-        msgError: '.invalid_input',
-        checkbox: '#materialUnchecked',
-        linkCreateAccount: '#createAccount',
-        titlePageRegister: '.account_form > h3'
-    }
-}
+let el = require('../elements/loginElements').login
 
 export default {
     fillLogin(email, senha) {
         if (email !== null) {
-        cy.get(elements.login.inputEmail)
+        cy.get(el.inputEmail)
             .should('be.visible')
             .type(email, {log: false})
         }
         if (senha !== null) {
-        cy.get(elements.login.inputPassword)
+        cy.get(el.inputPassword)
             .should('be.visible')
             .type(senha, {log: false})
         }
     },
 
     logIn() {
-        cy.get(elements.login.btnLogin)
+        cy.get(el.btnLogin)
             .click()
     },
 
     selectCheckbox() {
-        cy.get(elements.login.checkbox).check();
+        cy.get(el.checkbox).check();
     },
     
     deselectCheckbox() {
-        cy.get(elements.login.checkbox).uncheck();
+        cy.get(el.checkbox).uncheck();
     },
 
     clickLinkCreateAccount() {
-        cy.get(elements.login.linkCreateAccount).click({force: true});        
+        cy.get(el.linkCreateAccount).click({force: true});        
     },
 
     checkMessage(message) {
-        cy.get(elements.login.msgError)
+        cy.get(el.msgError)
             .should('have.text', message)
     },
     
-    checkLoginSuccess(email) {
-        cy.get(elements.login.msgSuccess)
+    checkLoginSuccess() {
+        cy.get(el.msgSuccess)
             .should('have.text', 'Login realizado')
         
-        cy.get(elements.login.msgWelcome, {timeout: 3000})
+        cy.get(el.msgWelcome, {timeout: 3000})
             .should('have.text', `Olá, kylian@teste.com`)
     },
 
@@ -64,22 +52,22 @@ export default {
     },
 
     checkCheckbox() {
-        cy.get(elements.login.checkbox)
+        cy.get(el.checkbox)
             .should('be.checked')
     }
     ,
     checkCheckboxUncheck() {
-        cy.get(elements.login.checkbox)
+        cy.get(el.checkbox)
             .should('not.be.checked')
     },
 
     checkLinkRegistration() {
-        cy.get(elements.login.titlePageRegister)
+        cy.get(el.titlePageRegister)
             .should('be.visible');
     },
 
     validatePageLogin(){ 
-        cy.get(loc.login.titlePageLogin)
+        cy.get(el.titlePageLogin)
             .should('be.visible')
     }
 }

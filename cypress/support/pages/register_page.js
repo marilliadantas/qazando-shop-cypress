@@ -1,58 +1,44 @@
 /// <reference types="cypress"/>
 
-const elements = {
-    buttons: {
-        register: '#btnRegister'
-    },
-
-    fields: {
-        name: '#user',
-        email: '#email',
-        password: '#password'
-    },
-
-    messages:{
-        error: '.errorLabel',
-        successTitle: '#swal2-title',
-        successSubtitle: '#swal2-html-container'
-    }
-}
-
+let el = require('../elements/registerElements').register
 
 // Ações/métodos/funções
 export default {
+    fillInformations(nome, email, senha) {
+        if (nome !== null) {
+        cy.get(el.fields.name)
+            .should('be.visible')
+            .type(nome)
+        }
+
+        if (email !== null) {
+        cy.get(el.fields.email)
+            .should('be.visible')
+            .type(email)
+        }
+
+        if (senha !== null) {
+        cy.get(el.fields.password)
+            .should('be.visible')
+            .type(senha)
+        }
+    },
+
     saveRegister() {
-        cy.get(elements.buttons.register)
+        cy.get(el.buttons.register)
             .click()
     },
     
-    fillEmail(email) {
-        cy.get(elements.fields.email)
-            .should('be.visible')
-            .type(email)
-    },
-    
-   fillName(name) {
-        cy.get(elements.fields.name)
-            .type(name)
-    },
-    
-    fillPassword(password) {
-        cy.get(elements.fields.password)
-            .should('be.visible')
-            .type(password)
-    },
-    
     checkMessage(message) {
-        cy.get(elements.messages.error)
+        cy.get(el.messages.error)
             .should('have.text', message)
     },
     
     checkRegisterSuccess(name) {
-        cy.get(elements.messages.successTitle)
+        cy.get(el.messages.successTitle)
             .should('have.text', 'Cadastro realizado!')
         
-        cy.get(elements.messages.successSubtitle, {timeout: 3000})
+        cy.get(el.messages.successSubtitle, {timeout: 3000})
             .should('have.text', `Bem-vindo ${name}`)
     }
 }
