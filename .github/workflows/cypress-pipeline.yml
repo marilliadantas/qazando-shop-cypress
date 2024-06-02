@@ -6,16 +6,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      
-      - name: Set Cypress environment variables
-        run: |
-          echo "EMAIL=${{ secrets.EMAIL }}" >> $GITHUB_ENV
-          echo "SENHA=${{ secrets.SENHA }}" >> $GITHUB_ENV
 
       - name: Cypress run
-        run: |
-          npx cypress run --env EMAIL=$EMAIL --env SENHA=$SENHA
-      
+        uses: cypress-io/github-action@v5
+        env:
+          CYPRESS_EMAIL: ${{ secrets.EMAIL }}
+          CYPRESS_SENHA: ${{ secrets.SENHA }}
 
       - uses: actions/upload-artifact@v3
         if: failure()

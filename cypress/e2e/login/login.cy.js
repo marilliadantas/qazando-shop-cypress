@@ -13,7 +13,7 @@ describe('Login', () => {
         const senha = Cypress.env('senha');
 
         loginPage.fillEmail(email)
-        loginPage.fillPassword(email)
+        loginPage.fillPassword(senha)
         loginPage.logIn()
         loginPage.checkLoginSuccess()
         loginPage.checkUrl('/my-account');
