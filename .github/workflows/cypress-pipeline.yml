@@ -27,7 +27,9 @@ jobs:
         run: npm run allure:clear
 
       - name: Run Cypress tests
-        run: npm test
+        env:
+          PASSWORD: ${{ secrets.PASSWORD }}
+        run: npx cypress run --env senha="$PASSWORD"
 
       - name: Generate report
         run: npm run allure:report
