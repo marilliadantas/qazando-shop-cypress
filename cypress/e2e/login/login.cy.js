@@ -16,7 +16,7 @@ describe('Login', () => {
     });
 
     it('Login with invalid email', () => {
-        loginPage.fillLogin("emailinvalido", "123Teste")
+        loginPage.fillLogin("emailinvalido", Cypress.env("senha"))
         loginPage.logIn()
         loginPage.checkMessage("E-mail inválido.")
     });
@@ -28,7 +28,7 @@ describe('Login', () => {
     });
 
     it('Login with blank email', () => {
-        loginPage.fillLogin(null, "123Teste")
+        loginPage.fillLogin(null, Cypress.env("senha"))
         loginPage.logIn()
         loginPage.checkMessage("E-mail inválido.")
     });
