@@ -12,3 +12,4 @@ exemplo-pipe.yml
 package.json
 package-lock.json
 /allure-results
+/allure-report
