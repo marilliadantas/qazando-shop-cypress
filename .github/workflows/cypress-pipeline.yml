@@ -20,7 +20,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install-dependencies
+          npm install
+          npm install -g allure-commandline
 
       - name: Clean Allure results
         run: npm run allure:clear
