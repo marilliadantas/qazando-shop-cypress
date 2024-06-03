@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "install-dependencies": "npm install && npm install -g allure-commandline",
     "test": "npx cypress run --config video=false --env allure=true || true",
     "allure:report": "allure generate allure-results",
     "allure:clear": "rm -r allure-results/ allure-report || true",
