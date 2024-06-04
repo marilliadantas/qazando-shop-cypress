@@ -48,27 +48,27 @@ yarn cypress run
 Este projeto utiliza uma estrutura organizada por funcionalidade para gerenciar os testes e comandos relacionados. Abaixo está a organização geral do projeto:
 
     cypress
-|-- e2e
-│   ├── login
-│   │   ├── login.cy.js
-│   ├── register
-│   │   ├── register.cy.js
-|-- fixtures
-│   │   ├── login_data.json
-|-- support
-│   ├── pages
-│   │   ├── initialPage.js
-│   │   ├── loginPage.js
-│   │   ├── registerPage.js
-│   ├── elements
-│   │   ├── loginElements.js
-│   │   ├── registerElements.js
-|-- .github
-|-- cypress.config.js
-|-- .gitignore
-|-- package.json
-|-- readme.md
+      |-- e2e
+      │   ├── login
+      │   │   ├── login.cy.js
+      │   ├── register
+      │   │   ├── register.cy.js
+      |-- fixtures
+      │   │   ├── login_data.json
+      |-- support
+      │   ├── pages
+      │   │   ├── initialPage.js
+      │   │   ├── loginPage.js
+      │   │   ├── registerPage.js
+      │   ├── elements
+      │   │   ├── loginElements.js
+      │   │   ├── registerElements.js
+      |-- .github
+      |-- cypress.config.js
+      |-- .gitignore
+      |-- package.json
+      |-- readme.md
 
-## Recursos adicionais
+## Recursos
 - [Documentação Cypress](https://docs.cypress.io/guides/overview/why-cypress)
 - [Exemplos](https://github.com/cypress-io/cypress-example-recipes)
