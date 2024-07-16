@@ -25,6 +25,6 @@ style.setAttribute("data-hide-command-log-request", "");
 app.document.head.appendChild(style);
 }
 
-afterEach(() => {
-    cy.screenshot()
-});
+// afterEach(() => {
+//     cy.screenshot()
+// });
