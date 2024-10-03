@@ -3,17 +3,31 @@
 let el = require('../elements/loginElements').login
 
 export default {
+    // fillLogin(email, senha) {
+    //     if (email !== null) {
+    //     cy.get(el.inputEmail)
+    //         .should('be.visible')
+    //         .type(email, {log: false})
+    //     }
+    //     if (senha !== null) {
+    //     cy.get(el.inputPassword)
+    //         .should('be.visible')
+    //         .type(senha, {log: false})
+    //     }
+    // },
+    
     fillLogin(email, senha) {
-        if (email !== null) {
+        if (email === null || senha === null) {
+            return; // Early return se qualquer um dos valores for null
+        }
+
         cy.get(el.inputEmail)
             .should('be.visible')
-            .type(email, {log: false})
-        }
-        if (senha !== null) {
+            .type(email, { log: false });
+
         cy.get(el.inputPassword)
             .should('be.visible')
-            .type(senha, {log: false})
-        }
+            .type(senha, { log: false });
     },
 
     logIn() {
