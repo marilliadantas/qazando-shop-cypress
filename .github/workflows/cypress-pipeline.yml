@@ -53,7 +53,7 @@ jobs:
         id-token: write
       environment:
         name: github-pages
-        url: https://marilliadantas.github.io/qazando-shop-cypress/index.html
+        url: ${{ secrets.URL }}
       steps:
         - name: Setup Pages
           uses: actions/configure-pages@v5
