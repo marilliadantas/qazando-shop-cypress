@@ -42,32 +42,30 @@ jobs:
             name: cypress-test-report
             path: allure-report/
 
-  deploy:
-      name: Deploy GitHub Pages 🌐
-      runs-on: ubuntu-latest
-      needs: 
-        - test
-      permissions:
-        contents: read
-        pages: write
-        id-token: write
-      environment:
-        name: github-pages
-        url: ${{ secrets.URL }}
-      steps:
-        - name: Setup Pages
-          uses: actions/configure-pages@v5
-          
-        - name: Download Artifacts
-          uses: actions/download-artifact@v4
-          with: 
-            name: cypress-test-report
-          
-        - name: Upload artifact
-          uses: actions/upload-pages-artifact@v3
-          with:
-              path: ./
-      
-        - name: Deploy to Github Pages
-          id: deployment
-          uses: actions/deploy-pages@v4
+deploy:
+  name: "Deploy GitHub Pages \U0001F310"
+  runs-on: ubuntu-latest
+  needs:
+    - test
+  permissions:
+    contents: read
+    pages: write
+    id-token: write
+  environment:
+    name: github-pages
+  steps:
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+    - name: Download Artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: cypress-test-report
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
+      env:
+        DEPLOY_URL: '${{ secrets.URL }}'
