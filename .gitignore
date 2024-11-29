@@ -13,3 +13,4 @@ exemplo-pipe.yml
 /allure-results
 /allure-report
 downloads
+package-lock.json
