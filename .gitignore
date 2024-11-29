@@ -10,8 +10,6 @@ ci-multibrowser.yml
 ci-simples.yml
 pipe-antiga.yml
 exemplo-pipe.yml
-package.json
-package-lock.json
 /allure-results
 /allure-report
 downloads
